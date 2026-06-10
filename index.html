@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A responsive meet the team section built with HTML and CSS grid."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="icon"
+      href="resources/favicon.ico"
+      type="image/x-icon"
+      sizes="96x96"
+    />
+
+    <title>Meet the Team Section | devChallenges.io</title>
+
+    <style>
+      :root {
+        --page-bg: #f3f4f6;
+        --panel-bg: #eeeeef;
+        --text-dark: #111111;
+        --text-muted: #394150;
+        --text-light: #ffffff;
+        --accent: #263fa9;
+        --radius: 20px;
+        --card-height: 234px;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+        font-family:
+          "Outfit",
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+        background: var(--page-bg);
+        color: var(--text-dark);
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      main {
+        width: min(84vw, 1160px);
+        margin: 72px auto 24px;
+      }
+
+      .team-layout {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-areas:
+          "intro intro liam sophia"
+          "cta ethan isabella noah";
+        border-radius: var(--radius);
+        overflow: hidden;
+      }
+
+      .intro {
+        background-color: var(--panel-bg);
+        background-image: url("resources/Background_decor.svg");
+        background-repeat: no-repeat;
+        background-position: top left;
+        background-size: auto 100%;
+      }
+
+      .intro {
+        grid-area: intro;
+        min-height: var(--card-height);
+        padding: 22px 26px;
+      }
+
+      .cta-card {
+        grid-area: cta;
+        display: flex;
+        align-items: flex-end;
+        padding: 22px 26px;
+        background: var(--panel-bg);
+      }
+
+      .eyebrow {
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--accent);
+        margin-bottom: 14px;
+      }
+
+      .intro h1 {
+        font-size: clamp(2.2rem, 3vw, 3.75rem);
+        line-height: 0.98;
+        margin-bottom: 16px;
+      }
+
+      .intro p {
+        max-width: 360px;
+        font-size: 1rem;
+        line-height: 1.35;
+        color: var(--text-muted);
+      }
+
+      .team-card {
+        position: relative;
+        min-height: var(--card-height);
+        overflow: hidden;
+      }
+
+      .team-card img {
+        position: absolute;
+        inset: auto 0 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: bottom center;
+      }
+
+      .team-card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          180deg,
+          rgba(217, 217, 217, 0) 0%,
+          rgba(0, 0, 0, 0.8) 100%
+        );
+      }
+
+      .team-card figcaption {
+        position: absolute;
+        left: 18px;
+        right: 18px;
+        bottom: 14px;
+        z-index: 1;
+        color: var(--text-light);
+      }
+
+      .team-card h2 {
+        font-size: 1.45rem;
+        font-weight: 600;
+        line-height: 1.1;
+        margin-bottom: 3px;
+      }
+
+      .team-card p {
+        font-size: 0.95rem;
+        line-height: 1.15;
+      }
+
+      .liam {
+        grid-area: liam;
+        background: #c1b2f6;
+      }
+
+      .sophia {
+        grid-area: sophia;
+        background: #e7acd1;
+      }
+
+      .ethan {
+        grid-area: ethan;
+        background: #9cc2f3;
+      }
+
+      .isabella {
+        grid-area: isabella;
+        background: #efd6af;
+      }
+
+      .noah {
+        grid-area: noah;
+        background: #89e1d1;
+      }
+
+      .cta-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 1rem;
+        font-weight: 500;
+        text-decoration: none;
+      }
+
+      .cta-link:hover,
+      .cta-link:focus-visible {
+        text-decoration: underline;
+      }
+
+      .cta-link img {
+        width: 16px;
+        height: 16px;
+      }
+
+      .author-info {
+        width: min(84vw, 1160px);
+        margin: 16px auto 24px;
+        font-size: 0.85rem;
+        text-align: center;
+        color: var(--text-muted);
+      }
+
+      .author-info a:hover,
+      .author-info a:focus-visible {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 1024px) {
+        :root {
+          --card-height: 220px;
+        }
+
+        main {
+          width: min(84vw, 820px);
+          margin-top: 56px;
+        }
+
+        .team-layout {
+          grid-template-columns: repeat(3, 1fr);
+          grid-template-areas:
+            "intro intro intro"
+            "liam sophia ethan"
+            "cta isabella noah";
+        }
+
+        .intro {
+          padding: 24px 24px 22px;
+        }
+
+        .intro p {
+          max-width: 440px;
+        }
+
+        .author-info {
+          width: min(84vw, 820px);
+        }
+      }
+
+      @media (max-width: 720px) {
+        :root {
+          --card-height: 188px;
+        }
+
+        main {
+          width: calc(100% - 16px);
+          margin-top: 8px;
+        }
+
+        .team-layout {
+          grid-template-columns: 1fr;
+          grid-template-areas:
+            "intro"
+            "liam"
+            "sophia"
+            "ethan"
+            "isabella"
+            "noah"
+            "cta";
+        }
+
+        .intro {
+          min-height: auto;
+          padding: 18px 16px 16px;
+          background-size: auto 100%;
+        }
+
+        .intro h1 {
+          font-size: 2.25rem;
+        }
+
+        .intro p {
+          max-width: 100%;
+          font-size: 0.875rem;
+          line-height: 1.35;
+        }
+
+        .cta-card {
+          min-height: 96px;
+          padding: 16px;
+        }
+
+        .team-card h2 {
+          font-size: 1.15rem;
+        }
+
+        .team-card p,
+        .cta-link {
+          font-size: 0.8rem;
+        }
+
+        .author-info {
+          width: calc(100% - 16px);
+          margin-top: 12px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="team-layout" aria-labelledby="team-heading">
+        <header class="intro">
+          <p class="eyebrow">Our team</p>
+          <h1 id="team-heading">Meet the brain</h1>
+          <p>
+            We are proud to have them as part of our community and look forward
+            to continuing to push the boundaries of what's possible in the world
+            of digital art.
+          </p>
+        </header>
+
+        <figure class="team-card liam">
+          <img src="resources/person_1.png" alt="Liam Novak" />
+          <figcaption>
+            <h2>Liam Novak</h2>
+            <p>Software Engineer</p>
+          </figcaption>
+        </figure>
+
+        <figure class="team-card sophia">
+          <img src="resources/person_2.png" alt="Sophia Moretti" />
+          <figcaption>
+            <h2>Sophia Moretti</h2>
+            <p>Business Development Manager</p>
+          </figcaption>
+        </figure>
+
+        <figure class="team-card ethan">
+          <img src="resources/person_3.png" alt="Ethan Rossi" />
+          <figcaption>
+            <h2>Ethan Rossi</h2>
+            <p>Business Development Manager</p>
+          </figcaption>
+        </figure>
+
+        <figure class="team-card isabella">
+          <img src="resources/person_4.png" alt="Isabella Ricci" />
+          <figcaption>
+            <h2>Isabella Ricci</h2>
+            <p>UX Designer</p>
+          </figcaption>
+        </figure>
+
+        <figure class="team-card noah">
+          <img src="resources/person_5.png" alt="Noah Conti" />
+          <figcaption>
+            <h2>Noah Conti</h2>
+            <p>Content Creator</p>
+          </figcaption>
+        </figure>
+
+        <div class="cta-card">
+          <a class="cta-link" href="#team-heading" aria-label="See all members">
+            <span>See all members</span>
+            <img src="resources/arrow up right.svg" alt="" aria-hidden="true" />
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="author-info">
+      Coded by <a href="#team-heading">Cedar Creatives</a> | Challenge by
+      <a href="https://www.devchallenges.io?ref=challenge" target="_blank"
+        >devChallenges.io</a
+      >.
+    </footer>
+  </body>
+</html>
